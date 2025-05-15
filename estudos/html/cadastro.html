@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <title>Cadastro de Usuário</title>
+  </head>
+  <body>
+    <section class="container" aria-label="Formulário de cadastro de usuário">
+      <h2>Cadastro de Usuário</h2>
+      <form id="user-registration-form" novalidate>
+        <div>
+          <label for="fullname">Nome Completo *</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Seu nome completo"
+            required
+          />
+          <div class="error-message" id="error-fullname"></div>
+        </div>
+        <div>
+          <label for="email">E-mail *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            required
+          />
+          <div class="error-message" id="error-email"></div>
+        </div>
+        <div>
+          <label for="password">Senha *</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Sua senha"
+            required
+            minlength="6"
+          />
+          <div class="error-message" id="error-password"></div>
+        </div>
+        <div>
+          <label for="confirm-password">Confirmar Senha *</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            placeholder="Confirme sua senha"
+            required
+            minlength="6"
+          />
+          <div class="error-message" id="error-confirm-password"></div>
+        </div>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <script>
+      const form = document.getElementById("user-registration-form");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Clear previous error messages
+        const errors = {
+          fullname: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        };
+
+        const fullname = this.fullname.value.trim();
+        const email = this.email.value.trim();
+        const password = this.password.value;
+        const confirmPassword = this["confirm-password"].value;
+
+        if (fullname.length < 3) {
+          errors.fullname = "Informe seu nome completo (mínimo 3 caracteres).";
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          errors.email = "Informe um e-mail válido.";
+        }
+
+        if (password.length < 6) {
+          errors.password = "Senha deve ter no mínimo 6 caracteres.";
+        }
+        if (password !== confirmPassword) {
+          errors.confirmPassword = "As senhas não conferem.";
+        }
+
+        this.querySelector("#error-fullname").textContent = errors.fullname;
+        this.querySelector("#error-email").textContent = errors.email;
+        this.querySelector("#error-password").textContent = errors.password;
+        this.querySelector("#error-confirm-password").textContent =
+          errors.confirmPassword;
+
+        const isValid = Object.values(errors).every((err) => err === "");
+        if (isValid) {
+          alert("Cadastro realizado com sucesso!");
+          this.reset();
+        }
+      });
+    </script>
+  </body>
+</html>

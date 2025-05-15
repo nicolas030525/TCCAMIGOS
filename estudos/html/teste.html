@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ProLivros - Biblioteca Profissional</title>
+    <link rel="stylesheet" href="../css/teste.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50 font-sans text-gray-900">
+    <!-- Header -->
+    <header class="bg-yellow-900 text-yellow-100 shadow-md sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center p-4">
+        <div class="flex items-center space-x-3 cursor-pointer" id="logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 text-yellow-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          <span class="font-bold text-xl select-none">ProLivros</span>
+        </div>
+        <nav>
+          <ul class="flex space-x-6 text-yellow-200">
+            <li>
+              <button
+                data-link="home"
+                class="nav-btn hover:text-yellow-400 focus:outline-none focus:text-yellow-400 transition"
+                aria-current="page"
+              >
+                Início
+              </button>
+            </li>
+            <li>
+              <button
+                data-link="catalog"
+                class="nav-btn hover:text-yellow-400 focus:outline-none focus:text-yellow-400 transition"
+              >
+                Livros
+              </button>
+            </li>
+            <li>
+              <button
+                data-link="details"
+                class="nav-btn hover:text-yellow-400 focus:outline-none focus:text-yellow-400 transition invisible"
+                id="nav-details-btn"
+                aria-disabled="true"
+              >
+                Detalhes
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-grow container mx-auto p-4 max-w-6xl">
+      <!-- Página Inicial com carrossel -->
+      <section id="home" class="space-y-8">
+        <h2
+          class="text-3xl font-semibold border-b-4 border-yellow-700 inline-block mb-4"
+        >
+          Destaques
+        </h2>
+        <div class="relative max-w-4xl mx-auto">
+          <div id="carousel" class="overflow-hidden rounded-lg shadow-lg">
+            <div
+              class="flex transition-transform duration-500"
+              style="width: 300%"
+            >
+              <!-- Slides -->
+              <div class="w-full flex-shrink-0 relative">
+                <img
+                  src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80"
+                  alt="Destaque Livro 1"
+                  class="w-full h-64 object-cover"
+                />
+                <div
+                  class="absolute bottom-0 bg-yellow-900 bg-opacity-70 text-yellow-100 p-4 w-full"
+                >
+                  <h3 class="text-xl font-bold">O Caminho da Sabedoria</h3>
+                  <p>
+                    Uma jornada inspiradora para quem busca conhecer as verdades
+                    profundas da vida.
+                  </p>
+                </div>
+              </div>
+              <div class="w-full flex-shrink-0 relative">
+                <img
+                  src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80"
+                  alt="Destaque Livro 2"
+                  class="w-full h-64 object-cover"
+                />
+                <div
+                  class="absolute bottom-0 bg-yellow-900 bg-opacity-70 text-yellow-100 p-4 w-full"
+                >
+                  <h3 class="text-xl font-bold">Tecnologia e Futuro</h3>
+                  <p>
+                    Explore as tendências tecnológicas que moldarão nosso amanhã
+                    e o impacto no cotidiano.
+                  </p>
+                </div>
+              </div>
+              <div class="w-full flex-shrink-0 relative">
+                <img
+                  src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+                  alt="Destaque Livro 3"
+                  class="w-full h-64 object-cover"
+                />
+                <div
+                  class="absolute bottom-0 bg-yellow-900 bg-opacity-70 text-yellow-100 p-4 w-full"
+                >
+                  <h3 class="text-xl font-bold">Cozinhando com Amor</h3>
+                  <p>
+                    Receitas simples, deliciosas e que aquecem o coração para
+                    toda a família.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Controls -->
+          <button
+            id="prevSlide"
+            aria-label="Slide Anterior"
+            class="absolute top-1/2 left-2 -translate-y-1/2 bg-yellow-800 bg-opacity-75 hover:bg-yellow-700 text-yellow-100 rounded-full p-2 shadow focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          >
+            &lt;
+          </button>
+          <button
+            id="nextSlide"
+            aria-label="Próximo Slide"
+            class="absolute top-1/2 right-2 -translate-y-1/2 bg-yellow-800 bg-opacity-75 hover:bg-yellow-700 text-yellow-100 rounded-full p-2 shadow focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          >
+            &gt;
+          </button>
+        </div>
+      </section>
+
+      <!-- Página de catálogo de livros -->
+      <section id="catalog" class="hidden space-y-6">
+        <h2
+          class="text-3xl font-semibold border-b-4 border-yellow-700 inline-block mb-3"
+        >
+          Catálogo de Livros
+        </h2>
+        <div class="mb-6">
+          <input
+            type="search"
+            id="searchBooksInput"
+            placeholder="Pesquisar por título ou autor..."
+            aria-label="Busca de livros"
+            class="w-full p-3 rounded border border-yellow-300 focus:border-yellow-600 focus:ring focus:ring-yellow-300 focus:ring-opacity-50"
+          />
+        </div>
+        <div
+          id="booksGrid"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+        >
+          <!-- Livros gerados pelo JS -->
+        </div>
+      </section>
+
+      <!-- Página de detalhes do livro -->
+      <section id="details" class="hidden max-w-3xl mx-auto space-y-4">
+        <button
+          id="backToCatalog"
+          class="text-yellow-700 hover:text-yellow-900 focus:outline-none focus:underline"
+        >
+          &larr; Voltar ao catálogo
+        </button>
+        <article>
+          <h2
+            id="detailsTitle"
+            class="text-4xl font-bold text-yellow-900 mb-2"
+          ></h2>
+          <p id="detailsAuthor" class="italic text-yellow-700 mb-4 text-lg"></p>
+          <img
+            id="detailsCover"
+            src=""
+            alt=""
+            class="w-full max-h-96 object-contain rounded shadow"
+          />
+          <p
+            id="detailsDescription"
+            class="mt-4 text-yellow-900 leading-relaxed text-lg"
+          ></p>
+          <div
+            class="mt-4 flex items-center space-x-2"
+            aria-label="Avaliação do livro"
+            id="detailsStars"
+          ></div>
+          <button
+            id="detailsBuyBtn"
+            class="mt-6 bg-yellow-700 text-yellow-100 font-semibold py-2 px-6 rounded hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          >
+            Comprar
+          </button>
+        </article>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer
+      class="bg-yellow-900 text-yellow-100 p-4 mt-auto text-center text-sm select-none"
+    >
+      <p>© 2024 ProLivros. Todos os direitos reservados.</p>
+      <p>Contato: contato@prolivros.com | Tel: (11) 1234-5678</p>
+    </footer>
+  </body>
+</html>

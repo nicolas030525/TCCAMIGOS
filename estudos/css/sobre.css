@@ -1,0 +1,128 @@
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  max-width: 900px;
+  min-height: 600px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  color: #4B0082;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #6A0DAD;
+  text-align: center;
+  letter-spacing: 1.8px;
+}
+.info-white-bg {
+  background: #fff;
+  color: #4B0082;
+  padding: 18px 24px;
+  border-left: 6px solid #6A0DAD;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.7px;
+  box-shadow: 0 4px 8px rgba(106, 13, 173, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+section.section-purple-bg {
+  background-color: #6A0DAD;
+  color: #fff;
+  border-radius: 14px;
+  padding: 30px 36px;
+  margin-bottom: 45px;
+  box-shadow: 0 10px 20px rgba(106, 13, 173, 0.25);
+  transition: box-shadow 0.3s ease;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+section.section-purple-bg:hover {
+  box-shadow: 0 16px 30px rgba(106, 13, 173, 0.45);
+}
+section.section-purple-bg h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+section.section-purple-bg p {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: inherit;
+}
+
+@media (max-width: 950px) {
+  body {
+    max-width: 95%;
+    padding: 20px 25px;
+  }
+  h1 {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+  }
+  .info-white-bg {
+    font-size: 1.05rem;
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  section.section-purple-bg {
+    padding: 22px 25px;
+    max-width: 100%;
+    margin-bottom: 35px;
+  }
+  section.section-purple-bg h2 {
+    font-size: 1.6rem;
+  }
+  section.section-purple-bg p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    max-width: 100%;
+    min-height: auto;
+    margin: 20px 15px;
+    padding: 15px 15px;
+  }
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .info-white-bg {
+    font-size: 1rem;
+    padding: 15px 18px;
+    margin-bottom: 25px;
+  }
+  section.section-purple-bg {
+    padding: 18px 20px;
+    margin-bottom: 25px;
+  }
+  section.section-purple-bg h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  section.section-purple-bg p {
+    font-size: 1rem;
+  }
+}
